@@ -18,6 +18,23 @@ how the ability to conduct a basic sentiment analysis.
 
 ## How to Install
 
+``` r
+remotes::install_github("Diego-Ford/EasySentiment")
+#> Downloading GitHub repo Diego-Ford/EasySentiment@HEAD
+#> ── R CMD build ─────────────────────────────────────────────────────────────────
+#>          checking for file 'C:\Users\diego\AppData\Local\Temp\RtmpOAxdwt\remotesdb85efa2994\Diego-Ford-EasySentiment-0189ff0/DESCRIPTION' ...  ✔  checking for file 'C:\Users\diego\AppData\Local\Temp\RtmpOAxdwt\remotesdb85efa2994\Diego-Ford-EasySentiment-0189ff0/DESCRIPTION'
+#>       ─  preparing 'EasySentiment':
+#>    checking DESCRIPTION meta-information ...  ✔  checking DESCRIPTION meta-information
+#>       ─  checking for LF line-endings in source and make files and shell scripts
+#>   ─  checking for empty or unneeded directories
+#>    Omitted 'LazyData' from DESCRIPTION
+#>       ─  building 'EasySentiment_0.0.0.9000.tar.gz'
+#>      
+#> 
+#> Installing package into 'C:/Users/diego/AppData/Local/R/win-library/4.3'
+#> (as 'lib' is unspecified)
+```
+
 ## Example of get_sentiments()
 
 ``` r
@@ -35,4 +52,37 @@ example_sentiments <- get_sentiments(example_strings, "bing")
 #> 
 #>     intersect, setdiff, setequal, union
 #> Joining with `by = join_by(word)`
+
+head(example_sentiments)
+#>   indexes  word sentiment
+#> 1       1 angry  negative
+#> 2       1 right  positive
+#> 3       2 happy  positive
+#> 4       3  rage  negative
+#> 5       4  lied  negative
+```
+
+## Example of Sentiment_Vis()
+
+``` r
+library(EasySentiment)
+
+plot <- sentiment_vis(example_sentiments$sentiment, index = example_sentiments$indexes, vis_type = "sentiment_hist")
+#> Warning: package 'ggplot2' was built under R version 4.3.3
+plot
+```
+
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
+
+## Example of count_sentiment()
+
+``` r
+library(EasySentiment)
+sentiments <- c("positive","negative","positive","neutral","negative")
+
+counts <- count_sentiment(sentiments)
+counts
+#> data
+#> negative  neutral positive 
+#>        2        1        2
 ```
