@@ -23,7 +23,7 @@ The goal of EasySentiment is to provide for an easy way to do simple sentiment a
 ## How to Install
 
 ```{r}
-
+remotes::install_github("Diego-Ford/EasySentiment")
 
 ```
 
@@ -34,7 +34,28 @@ library(EasySentiment)
 example_strings <- c("I am really angry right now", "I am very very happy", "Rage and mixed feelings", "i lied")
 example_sentiments <- get_sentiments(example_strings, "bing")
 
-
+head(example_sentiments)
 
 ```
+
+## Example of Sentiment_Vis()
+
+```{r, echo = TRUE, results = "markup"}
+library(EasySentiment)
+
+plot <- sentiment_vis(example_sentiments$sentiment, index = example_sentiments$indexes, vis_type = "sentiment_hist")
+plot
+```
+
+## Example of count_sentiment()
+
+```{r}
+library(EasySentiment)
+sentiments <- c("positive","negative","positive","neutral","negative")
+
+counts <- count_sentiment(sentiments)
+counts
+```
+
+
 
