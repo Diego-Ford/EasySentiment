@@ -4,7 +4,7 @@
 \alias{get_sentiment}
 \title{get_sentiment}
 \usage{
-get_sentiments(text, lexicon)
+get_sentiment(text, lexicon)
 }
 \arguments{
 \item{lexicon}{}
