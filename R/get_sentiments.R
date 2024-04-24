@@ -1,5 +1,5 @@
 
-#' get_sentiment
+#' get_sentiments
 #'
 #' @param text
 #' @param lexicon
@@ -10,7 +10,7 @@
 #' @examples
 #' example_strings <- c("I am really angry right now", "I am very very happy", "Rage and mixed feelings", "i lied")
 #' example_sentiments <- get_sentiments(example_strings, "bing")
-get_sentiment <- function(text, lexicon) {
+get_sentiments <- function(text, lexicon) {
   library(dplyr)
   text <- text
 
